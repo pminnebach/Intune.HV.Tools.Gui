@@ -5,11 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Intune.HV.Tools.Gui" Height="450" Width="800" ResizeMode="NoResize" >
     <Grid>
         <TabControl>
-            <TabItem Header="Module Info">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Environment">
+                <StackPanel Orientation="Vertical">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid Margin="10,10,488,361" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="300" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Label  Grid.Column="0" Grid.Row="0" Content="Computername:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label  Grid.Column="0" Grid.Row="1" Content="PSVersion:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label  Grid.Column="0" Grid.Row="2" Content="OS:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                            <Label x:Name="ComputernameLabel" Grid.Column="1" Grid.Row="0" Content="Computername" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label x:Name="PSVersionLabel" Grid.Column="1" Grid.Row="1" Content="PSVersion" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label x:Name="OSLabel" Grid.Column="1" Grid.Row="2" Content="OS" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        </Grid>
+                        <DataGrid x:Name="ModuleGrid" Margin="10,93,10,0" AutoGenerateColumns="True" IsReadOnly="True" Height="278" VerticalAlignment="Top">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ModuleType" Binding="{Binding ModuleType}" />
+                                <DataGridTextColumn Header="Version" Binding="{Binding Version}" />
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </StackPanel>
             </TabItem>
             <TabItem Header=".hvtoolscfgpath">
                 <Grid Background="#FFE5E5E5"/>
@@ -18,6 +46,5 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
-
     </Grid>
 </Window>
