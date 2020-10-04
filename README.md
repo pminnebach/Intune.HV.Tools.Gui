@@ -21,10 +21,16 @@ Run the `run.ps1` script.
 
 ![Preview01](Assets/Preview01.jpg)
 
+![Preview02](Assets/Preview02.jpg)
+
 ## Shoulders, giants!
 
 - [Intune.HV.Tools](https://github.com/tabs-not-spaces/Intune.HV.Tools)
 - [FoxDeploy XAML to GUI](https://github.com/1RedOne/PowerShell_XAML/)
 
-## LICENSE
+## TODO
 
+- [ ] Add refresh option
+- [ ] Add option to deploy VM's from this tool
+- [ ] Add option to initialize and/or reset the hvConfig
+- [ ] Add check to validate the ISO and VHD images are present
