@@ -17,19 +17,19 @@
                                 <ColumnDefinition Width="300" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
                             </Grid.RowDefinitions>
-                            <Label  Grid.Column="0" Grid.Row="0" Content="Computername:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <Label  Grid.Column="0" Grid.Row="1" Content="PSVersion:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <Label  Grid.Column="0" Grid.Row="2" Content="OS:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label Grid.Column="0" Grid.Row="0" Content="Computername:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Label Grid.Column="0" Grid.Row="1" Content="PSVersion:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Label Grid.Column="0" Grid.Row="2" Content="OS:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-                            <Label x:Name="ComputernameLabel" Grid.Column="1" Grid.Row="0" Content="Computername" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <Label x:Name="PSVersionLabel" Grid.Column="1" Grid.Row="1" Content="PSVersion" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <Label x:Name="OSLabel" Grid.Column="1" Grid.Row="2" Content="OS" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label x:Name="ComputernameLabel" Grid.Column="1" Content="Computername" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Label x:Name="PSVersionLabel" Grid.Column="1" Grid.Row="1" Content="PSVersion" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Label x:Name="OSLabel" Grid.Column="1" Grid.Row="2" Content="OS" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         </Grid>
-                        <DataGrid x:Name="ModuleGrid" Margin="10,93,10,0" AutoGenerateColumns="True" IsReadOnly="True" Height="278" VerticalAlignment="Top">
+                        <DataGrid x:Name="ModuleGrid" Margin="10,93,10,0" AutoGenerateColumns="True" IsReadOnly="True" Height="278" VerticalAlignment="Top" HorizontalGridLinesBrush="#FFAAAAAA" VerticalGridLinesBrush="#FFAAAAAA">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="ModuleType" Binding="{Binding ModuleType}" />
                                 <DataGridTextColumn Header="Version" Binding="{Binding Version}" />
