@@ -10,6 +10,8 @@
  | Xaml Objects
  #---------------#>
 
+#region TabItem: Environment
+
 $WPFComputernameLabel.Content = $env:COMPUTERNAME
 $WPFPSVersionLabel.Content = $PSVersionTable.PSVersion.ToString()
 if ($PSVersionTable.PSVersion.Major -eq 5) {
@@ -26,6 +28,34 @@ Get-Module -Name Hyper-ConvertImage,Microsoft.Graph.Intune, WindowsAutoPilotIntu
         Name = $_.Name
     })
 }
+
+#endregion
+
+#region TabItem: hvconfig.json
+
+$HVToolsConfig = Get-HVToolsConfig
+$WPFhvConfigPathLabel.Content = $HVToolsConfig.hvConfigPath
+$WPFvmPathLabel.Content = $HVToolsConfig.vmPath
+$WPFvSwitchNameLabel.Content = $HVToolsConfig.vSwitchName
+$WPFvLanIdLabel.Content = $HVToolsConfig.vLanId
+
+$HVToolsConfig.tenantConfig | ForEach-Object {
+    $WPFTenantGrid.AddChild([PSCustomObject]@{
+            TenantName = $_.TenantName
+            ImageName  = $_.ImageName
+            AdminUpn   = $_.AdminUpn
+    })
+}
+
+$HVToolsConfig.images | ForEach-Object {
+    $WPFImagesGrid.AddChild([PSCustomObject]@{
+            imageName = $_.imageName
+            imagePath = $_.imagePath
+            refImagePath = $_.refImagePath
+    })
+}
+
+#endregion
 
 #Reference
 

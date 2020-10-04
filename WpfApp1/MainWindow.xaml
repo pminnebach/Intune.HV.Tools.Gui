@@ -9,41 +9,72 @@
     <Grid>
         <TabControl>
             <TabItem Header="Environment">
-                <StackPanel Orientation="Vertical">
-                    <Grid Background="#FFE5E5E5">
-                        <Grid Margin="10,10,488,361" >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="300" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="25" />
-                                <RowDefinition Height="25" />
-                                <RowDefinition Height="25" />
-                            </Grid.RowDefinitions>
-                            <Label Grid.Column="0" Grid.Row="0" Content="Computername:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            <Label Grid.Column="0" Grid.Row="1" Content="PSVersion:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            <Label Grid.Column="0" Grid.Row="2" Content="OS:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Grid Background="#FFE5E5E5">
+                    <Grid Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="300" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="25" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0" Content="Computername:"/>
+                        <Label Grid.Column="0" Grid.Row="1" Content="PSVersion:"/>
+                        <Label Grid.Column="0" Grid.Row="2" Content="OS:"/>
 
-                            <Label x:Name="ComputernameLabel" Grid.Column="1" Content="Computername" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            <Label x:Name="PSVersionLabel" Grid.Column="1" Grid.Row="1" Content="PSVersion" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            <Label x:Name="OSLabel" Grid.Column="1" Grid.Row="2" Content="OS" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        </Grid>
-                        <DataGrid x:Name="ModuleGrid" Margin="10,93,10,0" AutoGenerateColumns="True" IsReadOnly="True" Height="278" VerticalAlignment="Top" HorizontalGridLinesBrush="#FFAAAAAA" VerticalGridLinesBrush="#FFAAAAAA">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="ModuleType" Binding="{Binding ModuleType}" />
-                                <DataGridTextColumn Header="Version" Binding="{Binding Version}" />
-                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                            </DataGrid.Columns>
-                        </DataGrid>
+                        <Label x:Name="ComputernameLabel" Grid.Column="1" Content="Computername"/>
+                        <Label x:Name="PSVersionLabel" Grid.Column="1" Grid.Row="1" Content="PSVersion"/>
+                        <Label x:Name="OSLabel" Grid.Column="1" Grid.Row="2" Content="OS"/>
                     </Grid>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header=".hvtoolscfgpath">
-                <Grid Background="#FFE5E5E5"/>
+                    <DataGrid x:Name="ModuleGrid" Margin="10,93,10,0" AutoGenerateColumns="True" IsReadOnly="True" Height="278" VerticalAlignment="Top" HorizontalGridLinesBrush="#FFAAAAAA" VerticalGridLinesBrush="#FFAAAAAA">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ModuleType" Binding="{Binding ModuleType}" />
+                            <DataGridTextColumn Header="Version" Binding="{Binding Version}" />
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </TabItem>
             <TabItem Header="hvconfig.json">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Grid Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="300"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="hvConfigPath" Grid.Column="0" Grid.Row="0"/>
+                        <Label Content="vmPath" Grid.Column="0" Grid.Row="1"/>
+                        <Label Content="vSwitchName" Grid.Column="0" Grid.Row="2"/>
+                        <Label Content="vLanId" Grid.Column="0" Grid.Row="3"/>
+
+                        <Label x:Name="hvConfigPathLabel" Content="hvConfigPath" Grid.Column="1" Grid.Row="0"/>
+                        <Label x:Name="vmPathLabel" Content="vmPath" Grid.Column="1" Grid.Row="1"/>
+                        <Label x:Name="vSwitchNameLabel" Content="vSwitchName" Grid.Column="1" Grid.Row="2"/>
+                        <Label x:Name="vLanIdLabel" Content="vLanId" Grid.Column="1" Grid.Row="3"/>
+                    </Grid>
+                    <DataGrid x:Name="TenantGrid" Margin="10,115,10,0" AutoGenerateColumns="True" IsReadOnly="True" Height="98" VerticalAlignment="Top" HorizontalGridLinesBrush="#FFAAAAAA" VerticalGridLinesBrush="#FFAAAAAA">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="TenantName" Binding="{Binding TenantName}" />
+                            <DataGridTextColumn Header="ImageName" Binding="{Binding ImageName}" />
+                            <DataGridTextColumn Header="AdminUpn" Binding="{Binding AdminUpn}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid x:Name="ImagesGrid" Margin="10,230,10,0" AutoGenerateColumns="True" IsReadOnly="True" Height="140" VerticalAlignment="Top" HorizontalGridLinesBrush="#FFAAAAAA" VerticalGridLinesBrush="#FFAAAAAA">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="imageName" Binding="{Binding imageName}" />
+                            <DataGridTextColumn Header="imagePath" Binding="{Binding imagePath}" Width="250"/>
+                            <DataGridTextColumn Header="refImagePath" Binding="{Binding refImagePath}" Width="*" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>
